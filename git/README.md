@@ -12,7 +12,15 @@ To ensure your environment variables are not tracked by Git, follow these steps:
    echo "DATABASE_URL=your-database-url" > .env
    echo "SECRET_KEY=your-secret-key" >> .env
    echo "API_KEY=your-api-key" >> .env
+   # Add .env to .gitignore
+   echo ".env" >> .gitignore
 
+   # Remove .env from tracking if it was already added
+   git rm --cached .env
+
+   # Commit changes to .gitignore
+   git add .gitignore
+   git commit -m "Add .env to .gitignore"
    # Repository Setup and Commit History Reset
 
 ## Steps to Reset Commit History
